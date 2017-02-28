@@ -20,10 +20,12 @@ unsigned int F(unsigned int X,unsigned int Y,unsigned int Z);
 unsigned int G(unsigned int X,unsigned int Y,unsigned int Z);
 unsigned int H(unsigned int X,unsigned int Y,unsigned int Z);
 unsigned int I(unsigned int X,unsigned int Y,unsigned int Z);
+//main function included how to use md5 function
+/*
 int main()
 {
     unsigned char data[100000] = "fdfdfd";
-    unsigned int number[2] = {0,6};//number[0]Â\«á­±?? which first?
+    unsigned int number[2] = {0,6};
     unsigned char buf[16];
     md5(&data[0], number, &buf[0]);
     int counter;
@@ -35,7 +37,7 @@ int main()
 
     return 1;
 }
-
+*/
 
 
 void md5(unsigned char * message,unsigned int message_len[2],unsigned char * result)
@@ -71,14 +73,8 @@ void md5(unsigned char * message,unsigned int message_len[2],unsigned char * res
     uint_to_uchar(&message_len[1], &buf[0]);
     uint_to_uchar(&message_len[0], &buf[4]);
 
-//--problem-start
-//    unsigned char * message_ptr = message;
-//    while(*message_ptr != 0)
-//        message_ptr++;
-//    *message_ptr = 0x80;
     unsigned char * message_ptr;
     message_ptr = md5_padding_message(message,&PADDING[0]);
-//--problem-end
     message_append_len(message_ptr, &buf[0],8);
 /*
     int counter;

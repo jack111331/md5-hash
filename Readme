@@ -1,1 +1,2 @@
 The md5 lib is served as a Message Digest 5 hash function referenced from RFC1321
+Usage of md5 function is in the main function of md5-varify.c
